@@ -1,3 +1,5 @@
+package Solutions;
+
 import java.util.Collections;
 
 import static java.util.Arrays.asList;

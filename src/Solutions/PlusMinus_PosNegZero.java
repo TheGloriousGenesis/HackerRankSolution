@@ -1,3 +1,5 @@
+package Solutions;
+
 import java.text.DecimalFormat;
 
 public class PlusMinus_PosNegZero {

@@ -1,3 +1,5 @@
+package Solutions;
+
 public class Staircase_N {
 
     static void staircase(int n) {
