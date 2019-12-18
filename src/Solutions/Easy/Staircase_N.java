@@ -1,4 +1,4 @@
-package Solutions;
+package Solutions.Easy;
 
 public class Staircase_N {
 

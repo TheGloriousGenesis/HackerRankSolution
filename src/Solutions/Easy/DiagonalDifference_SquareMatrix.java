@@ -1,4 +1,4 @@
-package Solutions;
+package Solutions.Easy;
 
 import java.util.List;
 
