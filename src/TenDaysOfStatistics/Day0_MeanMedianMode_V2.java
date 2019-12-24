@@ -1,9 +1,9 @@
-package TenDaysOfStatistics.ExtraVersionsOfChallenge;
+package TenDaysOfStatistics;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Day0_MeanMedianMode {
+public class Day0_MeanMedianMode_V2 {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
