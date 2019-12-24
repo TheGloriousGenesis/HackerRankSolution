@@ -1,44 +1,42 @@
 def mean(numbers):
-    sum = 0
-    for i in numbers:
-        sum = sum + i
-    return sum / len(numbers)
+    return sum(numbers) / n
 
 
 def mode(numbers):
     occurrences = {x: 0 for x in numbers}
-    for x in range(len(numbers)):
+    for x in range(n):
         if numbers[x] in occurrences:
             occurrences[numbers[x]] = occurrences[numbers[x]] + 1
 
-    maxValueOccurence = 0
-    maxValue = []
+    max_value_occurrence = 0
+    max_value = []
 
     for i, j in occurrences.items():
-        if (j >= maxValueOccurence):
-            maxValueOccurence = j
-            maxValue.append(i)
-    return min(maxValue)
+        if j >= max_value_occurrence:
+            max_value_occurrence = j
+            max_value.append(i)
+    return min(max_value)
 
 
 def median(numbers):
-    return 0
+    numbers.sort()
+    x = numbers[int(n/2)]
+    y = numbers[int((n - 1)/2)]
+    return (x + y)/2.0
+
 
 def start():
     global n
-    n = input("Number of elements in array: ")
-    elements = input("Space seperated numerical list: ")
+    n = int(input())
+    elements = input()
     split = list(map(int, (val for val in elements.split() if val.isdigit())))
     return split
+
 
 if __name__ == '__main__':
     x = start()
 
-
-
-    print("Mean")
-    print(mean(x))
-    print("Mode")
+    value = "{:.1f}"
+    print(value.format(mean(x)))
+    print(value.format(median(x)))
     print(mode(x))
-    print("Median")
-    print(median(x))
