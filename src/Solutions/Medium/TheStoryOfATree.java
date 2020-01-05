@@ -55,7 +55,7 @@ public class TheStoryOfATree {
 
     public static void main(String[] args) {
         int[][] testValues = {{1,2}, {1,3}, {3,4}};
-        TheStoryOfATree.drawTree(1, testValues)
+        TheStoryOfATree.drawTree(4, testValues)
         .entrySet().forEach(entry -> {
             System.out.println(entry.getKey() + " " + entry.getValue());
         });
@@ -63,42 +63,20 @@ public class TheStoryOfATree {
 
     public static Map<Integer, List<Integer>> drawTree(final int root, int[][] edges){
         // returns map showing the parent to child mapping for a given root
-        Map<Integer, List<Integer>> nodeMap = new HashMap<>();
+        Map<Integer, List<Integer>> nodeMap = nodeMap(edges);
+        Map<Integer, List<Integer>> cloneNodeMap = new HashMap<>(Map.copyOf(nodeMap));
 
         int[] distinctNodeValues = Arrays.stream(edges).flatMapToInt(Arrays::stream).distinct().toArray();
-
         List<Integer> orphanChildList = Arrays.stream(distinctNodeValues).boxed().collect(Collectors.toList());
-        for (int i: distinctNodeValues) {
-            nodeMap.put(i, new ArrayList<>());
-        }
 
-        List<Integer> children = nodeMap.get(root);
-        for(int i=0; i<edges.length; i++) {
-            int x1 = edges[i][0];
-            int x2 = edges[i][1];
-            if (x1 == root && orphanChildList.contains(x2)) {
-                children.add(x2);
-                orphanChildList.remove(x2);
-            }
-            if (x2 == root && orphanChildList.contains(x1)) {
-                children.add(x1);
-                orphanChildList.remove(x1);
-            }
-        }
-        nodeMap.put(root, children);
+        nodeMap.entrySet().forEach(k -> {
+            List<Integer> allEdgesForNode = k.getValue();
+            allEdgesForNode.remove(Integer.valueOf(root));
+            cloneNodeMap.put(k.getKey(), allEdgesForNode);
+        });
 
-        for (int j: children) {
-            List<Integer> children_2 = nodeMap.get(j);
-            for(int i=0; i<edges.length; i++) {
-                int x1 = edges[i][0];
-                int x2 = edges[i][1];
-                if (x1 == root && orphanChildList.contains(x2)) children_2.add(x2);
-                if (x2 == root && orphanChildList.contains(x1)) children_2.add(x1);
-            }
-            nodeMap.put(j, children_2);
-        }
-
-        return nodeMap;
+        int parentNode = root;
+        return cloneNodeMap;
     }
 
     public static Map<Integer, List<Integer>> nodeMap(final int[][] edges) {

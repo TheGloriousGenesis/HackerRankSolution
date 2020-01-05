@@ -35,4 +35,3 @@ if __name__ == '__main__':
     s_value, s_value1 = s.fraction_simplifier(x, y)
 
     print(value.format(s_value, s_value1))
-    # print(value.format(x, y))
