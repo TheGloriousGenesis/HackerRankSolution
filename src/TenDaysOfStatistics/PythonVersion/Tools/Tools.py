@@ -32,6 +32,7 @@ class Tools:
 
     # An unordered arrangement of r objects from a set A of n object where r <= n
     # a way of organising n objects in r ways where the r ways DOES NOT matter
+    # also shown as (n r)
     @staticmethod
     def unordered_permutations(n, r):
         n_factorial = Tools.factorial(n)
@@ -49,6 +50,13 @@ class Tools:
             return Tools.factorial(n) * x
         else:
             return x
+
+    # binomial
+    # constant * p^x * (1-p)^(n-x)
+    @staticmethod
+    def binomial(n, x, p):
+        constant = Tools.unordered_permutations(n, x)
+        return constant * pow(p, x) * pow((1 - p), (n - x))
 
 
 if __name__ == '__main__':
