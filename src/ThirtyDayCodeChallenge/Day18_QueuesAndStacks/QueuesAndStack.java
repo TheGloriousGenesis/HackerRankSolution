@@ -7,11 +7,11 @@ import java.util.Stack;
 
 // Last-In-First-Out = Stacks
 // First-In-First-Out = Queues
-public class Solution {
+public class QueuesAndStack {
     private Stack<Character> stack;
     private Queue<Character> queue;
 
-    public Solution() {
+    public QueuesAndStack() {
         this.stack = new Stack<>();
         this.queue = new LinkedList<>();
     }
@@ -24,8 +24,8 @@ public class Solution {
         // Convert input String to an array of characters:
         char[] s = input.toCharArray();
 
-        // Create a Solution object:
-        Solution p = new Solution();
+        // Create a QueuesAndStack object:
+        QueuesAndStack p = new QueuesAndStack();
 
         // Enqueue/Push all chars to their respective data structures:
         for (char c : s) {
