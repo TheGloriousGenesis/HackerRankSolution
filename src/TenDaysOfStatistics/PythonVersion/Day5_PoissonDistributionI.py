@@ -1,5 +1,4 @@
 import math
-from Tools.Tools import Tools
 
 
 def negative_binomial_distribution(n, x, p):
@@ -14,12 +13,32 @@ def geometric_distribution(arr, n):
     return negative_binomial_distribution(n, x, p)
 
 
+def poisson(lamda, k):
+    # lamda average number of successes that occur in specified region
+    # k actual number of successes that occur in a specified region
+    # probability of success is proportional to the size of the region
+    # average number of success (lamda) occuring in specified region is known
+    return (pow(lamda, k) * math.exp(-lamda)) / math.factorial(k)
+
+
+def expectation_squared(lamda):
+    return lamda + pow(lamda, 2)
+
+
 if __name__ == '__main__':
-    x1 = [int(i) for i in input().strip().split(' ')]
-    x2 = int(input())
+    lamda = int(input())
+    k = int(input())
     value = "{:.3f}"
-    cum = 0
-    # print(value.format(geometric_distribution(x1, x2)))
-    for i in range(1, 6, 1):
-        cum += geometric_distribution(x1, i)
-    print(value.format(cum))
+    x = poisson(lamda, k)
+    print(value.format(x))
+
+    x2 = 0
+    for i in range(0, 4):
+        x2 += poisson(lamda, i)
+
+    print(value.format(x2))
+
+
+
+
+
