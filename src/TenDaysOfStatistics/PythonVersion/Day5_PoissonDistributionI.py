@@ -26,17 +26,23 @@ def expectation_squared(lamda):
 
 
 if __name__ == '__main__':
-    lamda = int(input())
-    k = int(input())
+    # lamda = int(input())
+    # k = int(input())
+    # value = "{:.3f}"
+    # x = poisson(lamda, k)
+    # print(value.format(x))
+    #
+    # x2 = 0
+    # for i in range(0, 4):
+    #     x2 += poisson(lamda, i)
+    #
+    # print(value.format(x2))
+    lamdas = [float(i) for i in input().strip().split(' ')]
     value = "{:.3f}"
-    x = poisson(lamda, k)
-    print(value.format(x))
+    print(value.format(160 + 40*expectation_squared(lamdas[0])))
+    print(value.format(128 + 40*expectation_squared(lamdas[1])))
 
-    x2 = 0
-    for i in range(0, 4):
-        x2 += poisson(lamda, i)
 
-    print(value.format(x2))
 
 
 
