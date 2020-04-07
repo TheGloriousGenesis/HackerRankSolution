@@ -1,4 +1,4 @@
-from Tools.Tools import Tools
+from .tools.Tools import Tools
 
 if __name__ == '__main__':
     value = "{}/{}"

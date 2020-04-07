@@ -62,7 +62,7 @@ class Tools:
     @staticmethod
     def ordered_permutations(n, r):
         """
-        An orderded arrangement of r objects from a set A of n objects where 0 < r <= n
+        An ordered arrangement of r objects from a set A of n objects where 0 < r <= n
         a way of organising n objects in r ways where the r ways DOES matter
         e.g in a group of n objects how many ways can x objects be rearranged?
 
@@ -148,7 +148,7 @@ class Tools:
         :param p:
         :return:
         """
-        # constant = Tools.unordered_permutations(n - 1, x - 1)
+        # constant = tools.unordered_permutations(n - 1, x - 1)
         constant = math.factorial(n-1) / (math.factorial((n-1) - (x-1)) * math.factorial(x-1))
         return constant * pow(p, x) * pow((1 - p), (n - x))
 

@@ -1,4 +1,4 @@
-from Tools.Tools import Tools
+from .tools.Tools import Tools
 
 
 def binomial(n, x, p):

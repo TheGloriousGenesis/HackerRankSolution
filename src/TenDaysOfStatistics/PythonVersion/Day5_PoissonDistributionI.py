@@ -2,7 +2,7 @@ import math
 
 
 def negative_binomial_distribution(n, x, p):
-    # constant = Tools.unordered_permutations(n - 1, x - 1)
+    # constant = tools.unordered_permutations(n - 1, x - 1)
     constant = math.factorial(n-1) / (math.factorial((n-1) - (x-1)) * math.factorial(x-1))
     return constant * pow(p, x) * pow((1 - p), (n - x))
 

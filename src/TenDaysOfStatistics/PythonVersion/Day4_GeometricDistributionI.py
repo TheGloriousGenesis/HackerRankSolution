@@ -1,12 +1,12 @@
 import math
-from Tools.Tools import Tools
+from .tools.Tools import Tools
 
 
 # probability of probability of having (x -1) successes after (n -1) trials and having
 # x successes after n trials.
 # (n - 1, x -1) * p^x * q^(n-x)
 def negative_binomial_distribution(n, x, p):
-    # constant = Tools.unordered_permutations(n - 1, x - 1)
+    # constant = tools.unordered_permutations(n - 1, x - 1)
     constant = math.factorial(n-1) / (math.factorial((n-1) - (x-1)) * math.factorial(x-1))
     return constant * pow(p, x) * pow((1 - p), (n - x))
 

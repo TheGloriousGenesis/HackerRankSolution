@@ -1,5 +1,5 @@
 import math
-from Tools.Tools import Tools
+from .tools.Tools import Tools
 
 # Central Limit Distribution used for large sample (n > 30) stating that for
 # large enough sample n, the distribution follows a normal distribution -
