@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Day23_BSTLevelOrderTraversal {
 
+    // left to right same level then go down
     static void inOrder(Day22_BinarySearchTrees.Node root) {
         if (root != null) {
             inOrder(root.left);
@@ -14,6 +15,8 @@ public class Day23_BSTLevelOrderTraversal {
         }
     }
 
+    // visit node after children
+    // children, left to right, then root
     static void postOrder(Day22_BinarySearchTrees.Node root) {
         if (root != null) {
             postOrder(root.left);
@@ -22,6 +25,7 @@ public class Day23_BSTLevelOrderTraversal {
         }
     }
 
+    // root, all left then right
     static void preOrder(Day22_BinarySearchTrees.Node root) {
         if (root != null) {
             System.out.printf("%s ", root.data);
@@ -30,6 +34,7 @@ public class Day23_BSTLevelOrderTraversal {
         }
     }
 
+    //BFS
     static void levelOrder(Day22_BinarySearchTrees.Node root){
         Queue<Day22_BinarySearchTrees.Node> queue = new LinkedList<Day22_BinarySearchTrees.Node>();
         if (root != null) {
